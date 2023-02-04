@@ -73,5 +73,23 @@ def indexRenderTemplate():
 def archivo2Template():
     return render_template("archivo2.html")
 
+################# TEMA 6 #####################
+
+@app.route("/multiplicar")
+def multiplicar():
+    
+    return render_template("multiplicar.html")
+
+@app.route("/resultado", methods=['POST'])
+def resultado():
+    
+    num1 = request.form.get('numero1')
+    num2 = request.form.get('numero2')
+
+    res = int(num1)*int(num2)
+
+    return render_template("resultado.html", num1 = num1, num2 = num2, resultado = res)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
